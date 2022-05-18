@@ -1,0 +1,14 @@
+[
+  {
+    "name": "About",
+    "path": "/About",
+    "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\ejemplo-mapas\\\\pages\\\\About.vue",
+    "chunkName": "pages/About"
+  },
+  {
+    "name": "Home",
+    "path": "/Home",
+    "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\ejemplo-mapas\\\\pages\\\\Home.vue",
+    "chunkName": "pages/Home"
+  }
+]
