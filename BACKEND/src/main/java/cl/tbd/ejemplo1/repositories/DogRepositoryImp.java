@@ -19,7 +19,7 @@ public class DogRepositoryImp implements DogRepository {
     @Override
     public int countDogs() {
         int total = 0;
-        try(Connection conn = sql2o.open()){
+        try (Connection conn = sql2o.open()) {
             total = conn.createQuery("SELECT COUNT(*) FROM dog").executeScalar(Integer.class);
         }
         return total;
@@ -27,7 +27,7 @@ public class DogRepositoryImp implements DogRepository {
 
     @Override
     public List<Dog> getAllDogs() {
-        try(Connection conn = sql2o.open()){
+        try (Connection conn = sql2o.open()) {
             final String query = "SELECT id, name, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM dog;";
             return conn.createQuery(query)
                     .executeAndFetch(Dog.class);
@@ -38,35 +38,42 @@ public class DogRepositoryImp implements DogRepository {
     }
 
     @Override
-    public Dog createDog(Dog dog) {
+    public List<Dog> getAllDogsFromDog(Dog dog){
         try(Connection conn = sql2o.open()){
-            String query = "INSERT INTO DOG (name, location) " +
-            "VALUES (:dogName, ST_GeomFromText(:point, 4326))";
+            final String query = "SELECT id, name, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM dog WHERE "
+        }
+    }
 
-            String point = "POINT("+dog.getLongitude()+" "+dog.getLatitude()+")";
-            System.out.println("point: "+point);
-            
+    @Override
+    public Dog createDog(Dog dog) {
+        try (Connection conn = sql2o.open()) {
+            String query = "INSERT INTO DOG (name, location) " +
+                    "VALUES (:dogName, ST_GeomFromText(:point, 4326))";
+
+            String point = "POINT(" + dog.getLongitude() + " " + dog.getLatitude() + ")";
+            System.out.println("point: " + point);
+
             int insertedId = (int) conn.createQuery(query, true)
                     .addParameter("dogName", dog.getName())
                     .addParameter("point", point)
                     .executeUpdate().getKey();
             dog.setId(insertedId);
-            return dog;        
-        }catch(Exception e){
+            return dog;
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
-        
+
     }
 
     @Override
     public String getJson() {
         // TODO Auto-generated method stub
-        final String query = "SELECT json_build_object("+
-            "'type', 'FeatureCollection',"+
-            "'features', json_agg(ST_AsGeoJSON(t.geom)::json)"+
-            ")"+
-        "FROM division_regional_4326 AS t WHERE t.gid = 5;";
+        final String query = "SELECT json_build_object(" +
+                "'type', 'FeatureCollection'," +
+                "'features', json_agg(ST_AsGeoJSON(t.geom)::json)" +
+                ")" +
+                "FROM division_regional_4326 AS t WHERE t.gid = 5;";
         return null;
     }
 }

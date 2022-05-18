@@ -33,10 +33,10 @@ public class DogService {
             System.out.println("1");
             for (Dog d : dogs) {
                 System.out.println("ID: " + d.getId());
-                /*PGgeometry geom = d.getLocation();
+                PGgeometry geom = d.getLocation();
                 Geometry geometry = geom.getGeometry();
-                
-                System.out.println("Point: "+ geometry.getValue());*/
+
+                System.out.println("Point: " + geometry.getValue());
             }
             System.out.println("2");
             return dogs;
@@ -44,18 +44,18 @@ public class DogService {
             System.out.println("Error :" + e.getMessage());
             return null;
         }
-         
+
     }
 
     @GetMapping("/dogs/count")
-    public String countDogs(){
+    public String countDogs() {
         int total = dogRepository.countDogs();
         return String.format("Tienes %s perros!!", total);
     }
 
     @PostMapping("/dogs/create")
     @ResponseBody
-    public Dog createDog(@RequestBody Dog dog){
+    public Dog createDog(@RequestBody Dog dog) {
         Dog result = dogRepository.createDog(dog);
         return result;
     }
