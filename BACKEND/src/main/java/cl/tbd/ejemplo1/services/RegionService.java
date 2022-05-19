@@ -32,11 +32,14 @@ public class RegionService {
             List<Region> regions = regionRepository.getAllRegions();
             System.out.println("1");
             for (Region r : regions) {
-                System.out.println("ID: " + r.getId());
-                PGgeometry geom = r.getGeom();
-                Geometry geometry = geom.getGeometry();
-
-                System.out.println("Point: " + geometry.getValue());
+                System.out.println("ID: " + r.getGid());
+                System.out.println("Nombre: " + r.getNom_reg());
+                /*
+                 * PGgeometry geom = r.getGeom();
+                 * Geometry geometry = geom.getGeometry();
+                 * 
+                 * System.out.println("Point: " + geometry.getValue());
+                 */
             }
             System.out.println("2");
             return regions;

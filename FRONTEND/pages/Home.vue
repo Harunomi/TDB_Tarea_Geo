@@ -1,11 +1,13 @@
 <template>
   <div class="home">
-    <h1>Ejemplo Mapas</h1>
-    <div>
-      {{ point }}
-      <input type="text" v-model="name" placeholder="nombre" />
-      <button type="button" @click="createPoint">Crear</button>
-    </div>
+    <h1>Seleccion Regiones</h1>
+    <select v-model="selected">
+      <option disabled value="">Seleccione una Region</option>
+      <option v-for="(region, index) in regions" :key="index">
+        {{ region.nom_reg }}
+      </option>
+    </select>
+    <span v-if="selected != null">Seleccionado: {{ selected }}</span>
     <div>{{ message }}</div>
     <div id="mapid"></div>
   </div>
@@ -25,7 +27,7 @@ var myIcon = new LeafIcon({ iconUrl: icon });
 import axios from "axios";
 export default {
   name: "Home",
-  data: function () {
+  data() {
     return {
       latitude: null, //Datos de nuevo punto
       longitude: null,
@@ -33,6 +35,8 @@ export default {
       points: [], //colección de puntos cargados de la BD
       message: "",
       mymap: null, //objeto de mapa(DIV)
+      regions: [], //lista de las regiones
+      selected: null,
     };
   },
   computed: {
@@ -48,6 +52,15 @@ export default {
     },
   },
   methods: {
+    getData: async function () {
+      try {
+        let response = await axios.get("http://localhost:3000/regions");
+        this.regions = response.data;
+        console.log(response);
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
     clearMarkers: function () {
       //eliminar marcadores
 
@@ -104,6 +117,12 @@ export default {
       }
     },
   },
+
+  //Función que se ejecuta al cargar el componente
+  created: function () {
+    this.getData();
+  },
+
   mounted: function () {
     let _this = this;
     //Se asigna el mapa al elemento con id="mapid"

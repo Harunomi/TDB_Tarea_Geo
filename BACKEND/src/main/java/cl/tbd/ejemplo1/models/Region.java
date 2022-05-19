@@ -5,31 +5,32 @@ import org.postgis.PGgeometry;
 import org.postgis.Point;
 
 public class Region {
-    private Integer id;
-    private String nombre;
-    private PGgeometry geom;
+    private Integer gid;
+    private String nom_reg;
+    // private PGgeometry geom;
 
-    public String getNombre() {
-        return nombre;
+    public String getNom_reg() {
+        return nom_reg;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getGid() {
+        return gid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setGid(Integer id) {
+        this.gid = id;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom_reg(String nombre) {
+        this.nom_reg = nombre;
     }
-
-    public PGgeometry getGeom() {
-        return geom;
-    }
-
-    public void setGeom(PGgeometry geom) {
-        this.geom = geom;
-    }
+    /*
+     * public PGgeometry getGeom() {
+     * return geom;
+     * }
+     * 
+     * public void setGeom(PGgeometry geom) {
+     * this.geom = geom;
+     * }
+     */
 }

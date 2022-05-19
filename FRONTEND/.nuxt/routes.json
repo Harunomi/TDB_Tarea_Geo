@@ -3,12 +3,21 @@
     "name": "About",
     "path": "/About",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\TDB_Tarea_Geo\\\\FRONTEND\\\\pages\\\\About.vue",
-    "chunkName": "pages/About"
+    "chunkName": "pages/About",
+    "_name": "_5444e21f"
+  },
+  {
+    "name": "Cercanos",
+    "path": "/Cercanos",
+    "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\TDB_Tarea_Geo\\\\FRONTEND\\\\pages\\\\Cercanos.vue",
+    "chunkName": "pages/Cercanos",
+    "_name": "_31d70742"
   },
   {
     "name": "Home",
     "path": "/Home",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\TDB_Tarea_Geo\\\\FRONTEND\\\\pages\\\\Home.vue",
-    "chunkName": "pages/Home"
+    "chunkName": "pages/Home",
+    "_name": "_118a4e3d"
   }
 ]
