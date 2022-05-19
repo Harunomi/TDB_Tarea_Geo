@@ -112,7 +112,7 @@ export default {
     L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 10,
+      maxZoom: 18,
     }).addTo(this.mymap);
 
     //Evento click obtiene lat y long actual

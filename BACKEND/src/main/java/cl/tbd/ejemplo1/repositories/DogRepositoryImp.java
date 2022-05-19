@@ -1,6 +1,7 @@
 package cl.tbd.ejemplo1.repositories;
 
 import cl.tbd.ejemplo1.models.Dog;
+import cl.tbd.ejemplo1.models.Region;
 
 import org.postgis.Point;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class DogRepositoryImp implements DogRepository {
     @Override
     public List<Dog> getAllDogs() {
         try (Connection conn = sql2o.open()) {
-            final String query = "SELECT id, name, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM dog;";
+            final String query = "SELECT id, name, st_x(st_astext(geom)) AS longitude, st_y(st_astext(geom)) AS latitude FROM dog;";
             return conn.createQuery(query)
                     .executeAndFetch(Dog.class);
         } catch (Exception e) {
@@ -37,12 +38,15 @@ public class DogRepositoryImp implements DogRepository {
         }
     }
 
-    @Override
-    public List<Dog> getAllDogsFromDog(Dog dog){
-        try(Connection conn = sql2o.open()){
-            final String query = "SELECT id, name, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM dog WHERE "
-        }
-    }
+    /*
+     * @Override
+     * public List<Dog> getAllDogsFromRegion(Region region){
+     * try(Connection conn = sql2o.open()){
+     * final String query =
+     * "SELECT id, name, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude, location FROM dog WHERE ST_Distance(z.geom, ST_Transform(mini.geom, 32719))"
+     * }
+     * }
+     */
 
     @Override
     public Dog createDog(Dog dog) {

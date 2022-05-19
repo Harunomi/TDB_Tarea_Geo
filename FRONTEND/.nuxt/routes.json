@@ -3,14 +3,12 @@
     "name": "About",
     "path": "/About",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\TDB_Tarea_Geo\\\\FRONTEND\\\\pages\\\\About.vue",
-    "chunkName": "pages/About",
-    "_name": "_5444e21f"
+    "chunkName": "pages/About"
   },
   {
     "name": "Home",
     "path": "/Home",
     "component": "C:\\\\Users\\\\Felipe\\\\Documents\\\\USACH\\\\TBD\\\\TDB_Tarea_Geo\\\\FRONTEND\\\\pages\\\\Home.vue",
-    "chunkName": "pages/Home",
-    "_name": "_118a4e3d"
+    "chunkName": "pages/Home"
   }
 ]

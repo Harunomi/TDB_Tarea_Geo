@@ -33,10 +33,14 @@ public class DogService {
             System.out.println("1");
             for (Dog d : dogs) {
                 System.out.println("ID: " + d.getId());
-                PGgeometry geom = d.getLocation();
-                Geometry geometry = geom.getGeometry();
-
-                System.out.println("Point: " + geometry.getValue());
+                System.out.println("Nombre: " + d.getName());
+                System.out.println("Longitud: " + d.getLongitude() + " Latitud: " + d.getLatitude());
+                /*
+                 * PGgeometry geom = d.getLocation();
+                 * Geometry geometry = geom.getGeometry();
+                 * 
+                 * System.out.println("Point: " + geometry.getValue());
+                 */
             }
             System.out.println("2");
             return dogs;

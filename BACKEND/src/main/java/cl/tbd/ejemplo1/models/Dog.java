@@ -8,19 +8,21 @@ public class Dog {
     private String name;
     private double longitude;
     private double latitude;
-    private PGgeometry location;
+    // private PGgeometry location;
 
     public Integer getId() {
         return id;
     }
 
-    public PGgeometry getLocation() {
-        return location;
-    }
-
-    public void setLocation(PGgeometry location) {
-        this.location = location;
-    }
+    /*
+     * public PGgeometry getLocation() {
+     * return location;
+     * }
+     * 
+     * public void setLocation(PGgeometry location) {
+     * this.location = location;
+     * }
+     */
 
     public double getLatitude() {
         return latitude;

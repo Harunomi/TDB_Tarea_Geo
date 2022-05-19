@@ -15,13 +15,13 @@ public class DatabaseContext {
 
     @Value("${database.password}")
     private String dbPass;
-    
+
     @Bean
-    public Sql2o sql2o(){
-        //definir url / usuario / password para ingresar a la base de datos
+    public Sql2o sql2o() {
+        // definir url / usuario / password para ingresar a la base de datos
         dbUrl = "jdbc:postgresql://127.0.0.1:5432/postgis";
         dbUser = "postgres";
-        dbPass = "tbd";
+        dbPass = "grupo1";
 
         return new Sql2o(dbUrl, dbUser, dbPass);
     }
